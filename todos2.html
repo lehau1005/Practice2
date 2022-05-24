@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="todos2.js" defer></script>
+    <style>
+        .todo-list h2{
+          text-align: center;
+          font-size: 4rem;
+          color: blueviolet;
+          opacity: 0.4;
+
+        }
+        .todo-list form{
+            width: 400px;
+            margin:  0 auto;
+        }
+        .input{
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        .form ul{
+            list-style: none;
+            padding: 0;
+        }
+
+        .form ul li{
+            font-size: 1.5rem;
+            background-color: #fff;
+            padding: 0.5rem;
+        }
+
+        .completed{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-list">
+        <h2 id="key">todos</h2>
+        <form class="form "id="form">
+            <input id="input" class="input" type="text" placeholder="Enter your todos" >
+            <ul id="ul-el">
+                
+            </ul>
+        </form>
+    </div>
+    
+</body>
+</html>

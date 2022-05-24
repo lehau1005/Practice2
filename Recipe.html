@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/7ea463c34f.js" crossorigin="anonymous"></script>
+    <script src="Recipe.js" defer></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #8EC5FC;
+            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+            font-family: "Poppins", sans-serif;
+            min-height: 100vh;
+
+
+        }
+
+        .mobile-container {
+            margin: 0 auto;
+            background-color: #fff;
+            width: 400px;
+            box-shadow: 0 0 0 0.4 rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .mobile-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 40px;
+            padding: 1rem;
+            box-shadow: 0 0 10px 2px #3333331a;
+            border-radius: 3px;
+            overflow: hidden;
+
+        }
+
+        .mobile-header input {
+            background-color: #eee;
+            padding: 0.5rem 1rem;
+            border: none;
+            outline: none;
+            font-family: inherit;
+
+        }
+
+        .mobile-header button {
+            background-color: transparent;
+            border: none;
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-left: 10px;
+            cursor: pointer;
+
+        }
+
+        .fav-container {
+            background-color: #e9ecef;
+            text-align: center;
+
+        }
+
+        .fav-meals {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            overflow:auto;
+           
+        }
+
+        .fav-meals li {
+            position: relative;
+            padding: 10px 15px;
+            cursor: pointer;
+            width: 75px;
+            margin: 5px;
+            
+
+        }
+
+        .fav-meals li img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            /* ảnh nét đẹp hơn */
+        }
+
+        .fav-meals li span {
+            display: inline-block;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 75px;
+        }
+
+        .fav-meals li:hover span {
+            white-space: normal;
+            overflow: auto;
+
+        }
+
+        .meals {
+            margin: 1rem;
+            box-shadow: 0 0 10px 2px #3333331a;
+            border-radius: 3px;
+        }
+
+        .meal {
+
+            position: relative;
+        }
+
+        .meal .random {
+            position: absolute;
+            top: 1rem;
+            background-color: #fff;
+            padding: 0.5rem;
+
+        }
+
+        .meal img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .meal-body {
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        .meal-body button {
+            background-color: transparent;
+            border: none;
+            font-size: 1.2rem;
+        }
+
+        .active {
+            color: rgb(156, 25, 156)
+        }
+
+        .meal-info-container {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        .meal-info-container h3 {
+            padding: 10px 0;
+            color: royalblue;
+        }
+
+        .popup {
+            position: relative;
+            background-color: #fff;
+            max-width: 700px;
+            padding: 2rem;
+            border-radius: 5px;
+            overflow: auto;
+            max-height: 100vh;
+
+        }
+
+        .meal-info h2 {
+            text-align: center;
+        }
+
+        .meal-info img {
+            border-radius: 5px;
+            width: 300px;
+            object-fit: cover;
+
+        }
+
+        .popup .close-btn {
+            background-color: transparent;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .meal-info ul {
+            padding: 0;
+        }
+
+        .display {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <div class="mobile-header">
+            <input type="text" id="search-term">
+            <button id="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="fav-container">
+            <h3>Favorite Meals</h3>
+            <ul class="fav-meals">
+                <li><img
+                        src="https://images.unsplash.com/photo-1572424117831-005b5e9b3ae4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"><br>
+                    <span>Vegetables</span>
+                </li>
+                <li><img
+                        src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bWVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"><br>
+                    <span>Sauce</span>
+                </li>
+                <li><img
+                        src="https://images.unsplash.com/photo-1555126634-323283e090fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1lYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"><br>
+                    <span>Noddle</span>
+                </li>
+            </ul>
+        </div>
+        <div class="meals" id="meals">
+            <!-- <div class="meal">
+            <span class="random">Random Recipe</span>
+            <img  src="https://images.unsplash.com/photo-1564436872-f6d81182df12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" >
+        </div>
+        <div class="meal-body">
+            <h4>BBQ Chicken</h4>
+            <button><i class="fa-solid fa-heart"></i></button>
+        </div> -->
+        </div>
+        <div class="meal-info-container display" id="meal-popup">
+            <div class="popup">
+                <button id="close" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                <div class="meal-info" id="meal-info1"> </div>
+            </div>
+
+
+
+        </div>
+
+</body>
+
+</html>

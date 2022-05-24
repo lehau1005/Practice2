@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizApp</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            
+            font-family: "Poppins",sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        h2{
+            display: block;
+            margin: 0 auto;
+        }
+        #score{
+            color: red;
+        }
+        .container{
+            display: block;
+            margin: 20px auto; 
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+            width: 600px;
+        }
+        .quiz-header{
+            padding: 2rem;
+        }
+        h2{
+            text-align: center;
+        }
+        .quiz-header ul{
+            list-style: none;
+            padding: 0;
+        }
+        .quiz-header ul li{
+            font-size: 1.1rem;
+            padding: 1rem 0 ;
+        }
+        button{
+            width: 100%;
+            
+            background-color: #e74c3c;
+            color: #fff;
+            padding:1.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #ed2610;
+        }
+        #reload-btn{
+            display: none;
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+    <h2>SCORE:<span id="score"></span></h2>
+
+    <div class="container">
+    <div class="quiz-header">
+    <h2 id="question"></h2>
+    <ul>
+        <li><input class="answer" name="answer" id="a" type="radio"><label id="a_text"for="a"></label></li>
+        <li><input class="answer" name="answer" id="b" type="radio"><label id="b_text"for="b"></label></li>
+        <li><input class="answer" name="answer" id="c" type="radio"><label id="c_text"for="c"></label></li>
+        <li><input class="answer" name="answer" id="d" type="radio"><label id="d_text"for="d"></label></li>
+    </ul>
+    </div>
+
+
+    <button class="submit-btn">Submit</button>
+    
+
+
+    </div>
+    
+
+
+    <script src="QuizApp1.js"></script>
+</body>
+</html>

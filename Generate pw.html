@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7ea463c34f.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script src="prac.js" defer></script>
+    <style>
+        *{
+            box-sizing: border-box;           
+        }
+        body{
+            font-family: "Popoins", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            min-height: 100vh;
+        }
+     /* set min-height để phần tử con giữa theo column */
+        .pw-container{
+            min-width: 300px;
+            background-color: rgb(2, 2, 60);
+            color: #fff;
+            
+        }
+        .pw-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(56, 56, 188);
+            padding:1rem;
+            
+        }
+        .pw-header .copy-btn{
+            color:rgb(191, 170, 170);
+            background-color: transparent;
+            border:none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .pw-header .copy-btn:hover{
+            border: 1px solid rgb(211, 207, 207);
+        }
+        
+        .pw-body{
+            padding: 1rem;
+            
+        
+        }
+        .pw-body .form{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }  
+        .pw-body .generate{
+            display: block;
+            width: 100%;
+            background-color: #6c5ce7;
+            padding:0.5rem;
+            color:#fff;
+            cursor: pointer;
+            font-weight: 700;
+            border: none;
+            outline: none;
+            font-family: inherit;
+        }
+        .pw-body .generate:hover{
+            background-color: #31258a;
+
+        }
+    </style>
+</head>
+<body> 
+    <div class="pw-container">
+      <div class="pw-header">
+          <span class="pw" id="pw"></span><br>
+          <button class="copy-btn" id="copy-btn"><i class="fa-solid fa-copy"></i></button>
+      </div>
+      <div class="pw-body">
+        <div class="form">
+            <label for="length">Password Length</label>
+            <input id="length" value="10" type="number" min="3" max="20">
+        </div> 
+        <div class="form">
+            <label for="upper">Contains Uppercase Letters</label>
+            <input id="upper" type="checkbox">
+        </div>
+         
+        <div class="form">
+            <label for="lower">Contains Lower Letters</label>
+            <input id="lower" type="checkbox">
+        </div>
+         
+        <div class="form">
+            <label for="number">Contains Numbers</label>
+            <input id="number" type="checkbox">
+        </div>        
+        <div class="form">
+            <label for="symbol">Contains Symbols</label>
+            <input id="symbol" type="checkbox">
+        </div>
+        <button class="generate" id="generate">Generate Password</button>
+      </div>
+    </div>
+
+    
+</body>
+</html>
